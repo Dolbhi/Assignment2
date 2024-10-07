@@ -22,12 +22,23 @@ body {
     h1 {
         color: #bf0d00;
         font-size: 40px;
+        margin: 0px;
+        margin-bottom: 25px;
     }
 
     h2 {
         color: #bf0d00;
         font-size: 30px;
         margin: 10px;
+        margin-left: 5px;
+    }
+
+    h3 {
+        color: #bf0d00;
+        font-size: 20px;
+        margin: 10px;
+        margin-top: 25px;
+        margin-left: 5px;
     }
 
     p {
