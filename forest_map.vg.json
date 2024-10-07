@@ -1,0 +1,83 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": "container",
+    "data": {
+        "url": "geometry/ABS_land_env_SA2_subset.json",
+        "format": {
+            "type": "topojson",
+            "feature": "ABS_land_env_SA2"
+        }
+    },
+    "transform": [
+        {
+            "calculate": "100 * datum.properties.lcover_420 / datum.properties.land2021",
+            "as": "forest%"
+        }
+    ],
+    "layer": [
+        {
+            "data": {
+                "url": "geometry/ne_10m_graticules_5.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_10m_graticules_5"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "white",
+                "stroke": "lightgray"
+            }
+        },
+        {
+            "params": [
+                {
+                    "name": "hover",
+                    "select": {
+                        "type": "point"
+                    }
+                }
+            ],
+            "mark": {
+                "type": "geoshape",
+                "stroke": "black"
+            },
+            "encoding": {
+                "fill": {
+                    "field": "forest%",
+                    "type": "quantitative",
+                    "title": "Woody Vegetation (%)"
+                },
+                "strokeWidth": {
+                    "condition": [
+                        {
+                            "param": "hover",
+                            "empty": false,
+                            "value": 1
+                        }
+                    ],
+                    "value": 0
+                },
+                "tooltip": [
+                    {
+                        "field": "properties.sa2_name_2",
+                        "type": "nominal",
+                        "title": "State"
+                    },
+                    {
+                        "field": "forest%",
+                        "type": "quantitative",
+                        "title": "Woody Vegetation (%)"
+                    },
+                    {
+                        "field": "properties.land2021",
+                        "type": "quantitative",
+                        "format": "000.0f",
+                        "title": "Total Area (Hectare)"
+                    }
+                ]
+            }
+        }
+    ]
+}

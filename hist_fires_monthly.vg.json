@@ -1,0 +1,87 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": "container",
+    "data": {
+        "url": "data/output.csv"
+    },
+    "transform": [
+        {
+            "calculate": "split(datum.state, ' ')[0]",
+            "as": "state_code"
+        },
+        {
+            "calculate": "slice(split(datum.state, '(')[1], 0, -1)",
+            "as": "state_name"
+        },
+        {
+            "calculate": "timeParse(split(datum.ignition_date, 'T')[0], '%Y-%m-%d')",
+            "as": "ignition_date"
+        },
+        {
+            "calculate": "datetime(year(datum.ignition_date), month(datum.ignition_date))",
+            "as": "ignition_month"
+        },
+        {
+            "calculate": "datum.shape_area * 973205.204434",
+            "as": "true_shape_area"
+        },
+        {
+            "filter": "year(datum.ignition_date) >= 1900 && datum.fire_type == 'Bushfire'"
+        }
+    ],
+    "layer": [
+        {
+            "mark": "bar",
+            "encoding": {
+                "x": {
+                    "field": "ignition_date",
+                    "timeUnit": "month",
+                    "title": "Ignition Month"
+                },
+                "y": {
+                    "aggregate": "sum",
+                    "field": "area_ha",
+                    "type": "quantitative",
+                    "title": "Burn Area (Hectare)"
+                },
+                "color": {
+                    "field": "state_name",
+                    "type": "nominal",
+                    "title": "State"
+                }
+            }
+        },
+        {
+            "data": {
+                "url": "data/monthly.csv"
+            },
+            "transform": [
+                {
+                    "calculate": "datetime(2000, datum.Category)",
+                    "as": "month"
+                }
+            ],
+            "mark": {
+                "type": "line",
+                "color": "red"
+            },
+            "encoding": {
+                "x": {
+                    "field": "month",
+                    "timeUnit": "month"
+                },
+                "y": {
+                    "field": "Average Mean Surface Air Temperature",
+                    "type": "quantitative",
+                    "title": "Average Air Temperature (C)"
+                }
+            }
+        }
+    ],
+    "resolve": {
+        "scale": {
+            "y": "independent"
+        }
+    }
+}

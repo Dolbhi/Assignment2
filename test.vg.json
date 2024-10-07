@@ -1,0 +1,47 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "data/burn_centres.csv"
+    },
+    "transform": [
+        {
+            "calculate": "split(datum.state, ' ')[0]",
+            "as": "state_code"
+        },
+        {
+            "calculate": "slice(split(datum.state, '(')[1], 0, -1)",
+            "as": "state_name"
+        },
+        {
+            "calculate": "timeParse(split(datum.ignition_date, ' ')[0], '%Y/%m/%d')",
+            "as": "ignition_date"
+        },
+        {
+            "calculate": "datetime(year(datum.ignition_date), month(datum.ignition_date))",
+            "as": "ignition_month"
+        },
+        {
+            "calculate": "datum.Shape__Area * 973205.204434",
+            "as": "true_shape_area"
+        },
+        {
+            "filter": "year(datum.ignition_date) >= 1900"
+        }
+    ],
+    "width": "container",
+    "mark": "bar",
+    "encoding": {
+        "x": {
+            "field": "state_name",
+            "type": "nominal",
+            "axis": {
+                "labelAngle": 0
+            }
+        },
+        "y": {
+            "aggregate": "sum",
+            "field": "area_ha",
+            "type": "quantitative"
+        }
+    }
+}

@@ -1,0 +1,118 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "data/output.csv"
+    },
+    "config": {
+        "legend": {
+            "disable": true
+        }
+    },
+    "transform": [
+        {
+            "calculate": "split(datum.state, ' ')[0]",
+            "as": "state_code"
+        },
+        {
+            "calculate": "slice(split(datum.state, '(')[1], 0, -1)",
+            "as": "state_name"
+        },
+        {
+            "calculate": "timeParse(split(datum.ignition_date, 'T')[0], '%Y-%m-%d')",
+            "as": "ignition_date"
+        },
+        {
+            "calculate": "datetime(year(datum.ignition_date), month(datum.ignition_date))",
+            "as": "ignition_month"
+        },
+        {
+            "calculate": "datum.shape_area * 973205.204434",
+            "as": "true_shape_area"
+        },
+        {
+            "filter": "year(datum.ignition_date) >= 1900 && datum.fire_type == 'Bushfire'"
+        }
+    ],
+    "width": "container",
+    "height": 400,
+    "layer": [
+        {
+            "mark": "area",
+            "params": [
+                {
+                    "name": "my_brush",
+                    "select": {
+                        "type": "interval",
+                        "encodings": [
+                            "x"
+                        ]
+                    }
+                }
+            ],
+            "encoding": {
+                "x": {
+                    "field": "ignition_date",
+                    "timeUnit": "year",
+                    "type": "temporal",
+                    "title": "Ignition Date"
+                },
+                "y": {
+                    "aggregate": "sum",
+                    "field": "area_ha",
+                    "type": "quantitative",
+                    "title": "Burnt Area (Hectares)"
+                },
+                "color": {
+                    "field": "state_name",
+                    "type": "nominal",
+                    "title": "State"
+                },
+                "tooltip": [
+                    {
+                        "field": "state_name",
+                        "type": "nominal",
+                        "title": "State"
+                    },
+                    {
+                        "aggregate": "sum",
+                        "field": "area_ha"
+                    }
+                ]
+            }
+        },
+        {
+            "data": {
+                "url": "data/annual-average.csv"
+            },
+            "transform": [
+                {
+                    "calculate": "datetime(datum.Category, 0)",
+                    "as": "year"
+                }
+            ],
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "year",
+                    "timeUnit": "year"
+                },
+                "y": {
+                    "field": "Annual Mean",
+                    "type": "quantitative",
+                    "title": "Average Air Temperature (C)",
+                    "scale": {
+                        "domain": [
+                            20,
+                            24
+                        ]
+                    }
+                }
+            }
+        }
+    ],
+    "resolve": {
+        "scale": {
+            "y": "independent"
+        }
+    }
+}

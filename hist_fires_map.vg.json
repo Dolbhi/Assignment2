@@ -1,0 +1,124 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "data/output.csv"
+    },
+    "width": "container",
+    "height": "container",
+    "transform": [
+        {
+            "calculate": "split(datum.state, ' ')[0]",
+            "as": "state_code"
+        },
+        {
+            "calculate": "slice(split(datum.state, '(')[1], 0, -1)",
+            "as": "state_name"
+        },
+        {
+            "calculate": "timeParse(split(datum.ignition_date, 'T')[0], '%Y-%m-%d')",
+            "as": "ignition_date"
+        },
+        {
+            "calculate": "datetime(year(datum.ignition_date), month(datum.ignition_date))",
+            "as": "ignition_month"
+        },
+        {
+            "calculate": "datum.shape_area * 973205.204434",
+            "as": "true_shape_area"
+        },
+        {
+            "filter": "year(datum.ignition_date) >= 1900 && datum.fire_type == 'Bushfire'"
+        }
+    ],
+    "layer": [
+        {
+            "data": {
+                "url": "geometry/ne_10m_graticules_5.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_10m_graticules_5"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "white",
+                "stroke": "lightgray"
+            }
+        },
+        {
+            "data": {
+                "url": "geometry/ABS_land_env_SA2.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ABS_land_env_SA2"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "white",
+                "stroke": "lightgray"
+            }
+        },
+        {
+            "params": [
+                {
+                    "name": "state_filter",
+                    "select": {
+                        "type": "point",
+                        "fields": [
+                            "state_name"
+                        ]
+                    },
+                    "bind": "legend"
+                }
+            ],
+            "mark": "circle",
+            "encoding": {
+                "latitude": {
+                    "field": "latitude",
+                    "type": "quantitative"
+                },
+                "longitude": {
+                    "field": "longitude",
+                    "type": "quantitative"
+                },
+                "size": {
+                    "field": "true_shape_area",
+                    "type": "quantitative",
+                    "title": "Burn Area (Hectare)"
+                },
+                "color": {
+                    "field": "state_name",
+                    "type": "nominal",
+                    "title": "State",
+                    "legend": null
+                },
+                "opacity": {
+                    "condition": {
+                        "param": "state_filter",
+                        "value": 0.8
+                    },
+                    "value": 0
+                },
+                "tooltip": [
+                    {
+                        "field": "state_name",
+                        "type": "nominal",
+                        "title": "State"
+                    },
+                    {
+                        "field": "area_ha",
+                        "type": "quantitative",
+                        "format": ",.0f",
+                        "title": "Burn Area (Hectare)"
+                    },
+                    {
+                        "field": "ignition_date",
+                        "type": "temporal",
+                        "title": "Ignition Date"
+                    }
+                ]
+            }
+        }
+    ]
+}

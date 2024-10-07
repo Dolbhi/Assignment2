@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Historical Bushfires in Australia</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+        integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <script>
+        // var vg = "hist_fires.vg.json";
+        // vegaEmbed("#full", vg, { actions: false }).then(function (result) { }).catch(console.error);
+
+        var vg = "hist_fires_monthly.vg.json";
+        vegaEmbed("#monthly", vg, { actions: false }).then(function (result) { }).catch(console.error);
+
+        var vg = "hist_fires_timeline.vg.json";
+        vegaEmbed("#timeline", vg, { actions: false }).then(function (result) { }).catch(console.error);
+
+        var vg = "hist_fires_map.vg.json";
+        vegaEmbed("#map", vg, { actions: false }).then(function (result) { }).catch(console.error);
+
+        var vg = "forest_map.vg.json";
+        vegaEmbed("#forest", vg, { actions: false }).then(function (result) { }).catch(console.error);
+
+        // var vg = "test.vg.json";
+        // vegaEmbed("#test", vg, { actions: false }).then(function (result) { }).catch(console.error);
+    </script>
+</head>
+
+<body>
+    <!-- Title -->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+            <div id='text_div'>
+                <h1>Historical Bushfires in Australia</h1>
+                <p>Wow bushfires, they sure do happen. Crazy right?</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Two columns text and chart-->
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div id='text_div'>
+                <h2>Monthly Distribution of Bushfires in Australia</h2>
+                <p>
+                    Did you know? It's hot during the summer. Yeah, really. No, I'm serious go outside and check right
+                    now... what do you mean it's raining?
+                    <br> <br>
+                    Not only that, but bushfires also happen in bushes (and forests)! Bushes have wood so they count
+                    as woody vegetation. Okay, you have done enough reading, you do not need to look into the remaining
+                    text, yup, no need at all.
+                    <br> <br>
+                    Prices for most things like hostels, transportation and attractions are fixed and certain.
+                    However, prices for a 'budget lunch' or a pint of beer can vary depending on where you go. The index
+                    takes all of these factors into
+                    account to calculate the approximate price of a day in each city, including an overnight stay at a
+                    backpacker hostel.
+                    <br> <br>
+                    Here we review the top five cheapest European cities, as featured on the 2018 Index.
+                    Review the complete list of 59 cities at https://www.priceoftravel.com/1979/european-
+                    backpacker-index/.
+                </p>
+            </div>
+        </div>
+        <div class="pure-u-1-2">
+            <div id="monthly" class="vis-container"></div>
+        </div>
+    </div>
+
+    <!-- Two column charts -->
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <h2>Distribution of Bushfires</h2>
+            <div id="map" class="maps"></div>
+        </div>
+        <div class="pure-u-1-2">
+            <h2>Distribution of Bushland and Forests</h2>
+            <div id="forest" class="maps"></div>
+        </div>
+    </div>
+
+    <!-- One column chart -->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+            <h2>Bushfires over time</h2>
+            <p>Yes it's climate change again</p>
+            <div id="timeline" class="vis-container"></div>
+        </div>
+    </div>
+
+    <!-- Two column texts -->
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div id='text_div'>
+                <h2>The Index</h2>
+                <p>The annual European Backpacker Index, compiled by priceoftravel.com, is designed to help money-savy
+                    travellers find the cheapest European cities and plan an accurate budget for when they visit.
+                    <br> <br> Prices for most things like hostels, transportation and attractions are fixed and certain.
+                    However, prices for a 'budget lunch' or a pint of beer can vary depending on where you go. The index
+                    takes all of these factors into
+                    account to calculate the approximate price of a day in each city, including an overnight stay at a
+                    backpacker hostel.
+                    <br> <br> Here we review the top five cheapest European cities, as featured on the 2018 Index.
+                    Review the complete list of 59 cities at https://www.priceoftravel.com/1979/european-
+                    backpacker-index/.
+                </p>
+            </div>
+        </div>
+        <div class="pure-u-1-2">
+            <div id='text_div'>
+                <h2>The daily cost covers</h2>
+                <p>The annual European Backpacker Index, compiled by priceoftravel.com, is designed to help money-savy
+                    travellers find the cheapest European cities and plan an accurate budget for when they visit.
+                    <br> <br> Prices for most things like hostels, transportation and attractions are fixed and certain.
+                    However, prices for a 'budget lunch' or a pint of beer can vary depending on where you go. The index
+                    takes all of these factors into
+                    account to calculate the approximate price of a day in each city, including an overnight stay at a
+                    backpacker hostel.
+                    <br> <br> Here we review the top five cheapest European cities, as featured on the 2018 Index.
+                    Review the complete list of 59 cities at https://www.priceoftravel.com/1979/european-
+                    backpacker-index/.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
