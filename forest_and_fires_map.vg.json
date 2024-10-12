@@ -3,6 +3,11 @@
     "data": {
         "url": "data/output.csv"
     },
+    "config": {
+        "legend": {
+            "orient": "top-right"
+        }
+    },
     "width": "container",
     "height": 600,
     "params": [
