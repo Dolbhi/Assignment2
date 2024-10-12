@@ -71,7 +71,11 @@
                 "size": {
                     "field": "true_shape_area",
                     "type": "quantitative",
-                    "title": "Burn Area (Hectare)"
+                    "title": "Burn Area (Hectare)",
+                    "scale": {
+                        "rangeMin": 1,
+                        "rangeMax": 1000
+                    }
                 },
                 "color": {
                     "field": "state_name",
