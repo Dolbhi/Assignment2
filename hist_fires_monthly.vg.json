@@ -32,6 +32,18 @@
     ],
     "layer": [
         {
+            "params": [
+                {
+                    "name": "state_filter",
+                    "select": {
+                        "type": "point",
+                        "fields": [
+                            "state_name"
+                        ]
+                    },
+                    "bind": "legend"
+                }
+            ],
             "mark": "bar",
             "encoding": {
                 "x": {
@@ -49,7 +61,14 @@
                     "field": "state_name",
                     "type": "nominal",
                     "title": "State"
-                }
+                },
+                "tooltip": [
+                    {
+                        "field": "state_name",
+                        "type": "nominal",
+                        "title": "State"
+                    }
+                ]
             }
         },
         {

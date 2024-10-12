@@ -54,6 +54,7 @@
                     {
                         "field": "forest%",
                         "type": "quantitative",
+                        "format": ",.0f",
                         "title": "Woody Vegetation (%)"
                     },
                     {

@@ -80,8 +80,7 @@
                 "color": {
                     "field": "state_name",
                     "type": "nominal",
-                    "title": "State",
-                    "legend": null
+                    "title": "State"
                 },
                 "opacity": {
                     "condition": {
