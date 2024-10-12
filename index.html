@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- 
+1. Annotations and legend on timeline
+2. Eyecatching starter visualisation
+3. Bushfire size missing smaller legends
+4. Explaination for monthly map
+-->
+
 <head>
     <title>Historical Bushfires in Australia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
         integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
@@ -78,20 +91,26 @@
             </div>
         </div>
         <div class="pure-u-1-2">
-            <h2>Total Area Burned Each Month</h2>
-            <div id="monthly" class="vis-container"></div>
+            <div id='text_div'>
+                <h2>Total Area Burned Each Month</h2>
+                <div id="monthly" class="vis-container"></div>
+            </div>
         </div>
     </div>
 
     <!-- Two column charts -->
     <div class="pure-g">
         <div class="pure-u-1-2">
-            <h2>Distribution of Bushfires</h2>
-            <div id="map" class="maps"></div>
+            <div id='text_div'>
+                <h2>Distribution of Bushfires</h2>
+                <div id="map" class="maps"></div>
+            </div>
         </div>
         <div class="pure-u-1-2">
-            <h2>Distribution of Bushland and Forests</h2>
-            <div id="forest" class="maps"></div>
+            <div id='text_div'>
+                <h2>Distribution of Bushland and Forests</h2>
+                <div id="forest" class="maps"></div>
+            </div>
         </div>
     </div>
 
@@ -136,6 +155,7 @@
                     <br> <br>
                     Planned burning was invented because of this
                 </p>
+                <br>
 
                 <h3><i>1966-67</i>: Black Tuesday</h3>
                 <p>
@@ -147,6 +167,7 @@
                     (1.2 mi) of the
                     centre of Hobart, the state capital. The infernos killed 62 people and destroyed almost 1,300 homes.
                 </p>
+                <br>
 
                 <h3><i>1980-83</i>: Ash Wednesday</h3>
                 <p>
@@ -158,6 +179,7 @@
                     square miles) of bushland and exceeding the loss of 75 people. The bushfires, caused by years of
                     severe drought and extreme weather, were amongst the deadliest bushfires in Australian history.
                 </p>
+                <br>
 
                 <h3><i>2003</i>: Canberra bushfires</h3>
                 <p>
@@ -169,6 +191,7 @@
                     injured 470 homes were
                     destroyed or severely damaged.
                 </p>
+                <br>
 
                 <h3><i>2008-09</i>: Black Saturday</h3>
                 <p>
@@ -184,6 +207,7 @@
                     damage, the Black
                     Saturday fires rank as the most devastating in Australian history.
                 </p>
+                <br>
 
                 <h3><i>2019-20</i></h3>
                 <p>
@@ -197,11 +221,13 @@
                     deaths, and damage to
                     the environment, some of its permanent damage, such as the burning of remnant rainforest.
                 </p>
+                <br>
             </div>
         </div>
         <div class="pure-u-1-2">
-
-            <div id="timeline" class="vis-container"></div>
+            <div id='text_div'>
+                <div id="timeline" class="vis-container"></div>
+            </div>
         </div>
     </div>
 
