@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
-    "height": 2000,
+    "height": 300,
     "data": {
         "url": "data/output.csv"
     },
@@ -32,18 +32,6 @@
     ],
     "layer": [
         {
-            "params": [
-                {
-                    "name": "state_filter",
-                    "select": {
-                        "type": "point",
-                        "fields": [
-                            "state_name"
-                        ]
-                    },
-                    "bind": "legend"
-                }
-            ],
             "mark": "bar",
             "encoding": {
                 "x": {

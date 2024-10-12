@@ -5,9 +5,7 @@
     },
     "config": {
         "legend": {
-            "orient": "none",
-            "legendX": 450,
-            "legendY": 20
+            "orient": "top-right"
         }
     },
     "transform": [

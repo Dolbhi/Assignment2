@@ -112,21 +112,7 @@
                             "state_name"
                         ]
                     },
-                    "bind": {
-                        "element": "#test",
-                        "input": "select",
-                        "options": [
-                            null,
-                            "Australian Capital Territory",
-                            "New South Wales",
-                            "Queensland",
-                            "South Australia",
-                            "Tasmania",
-                            "Victoria",
-                            "Western Australia"
-                        ],
-                        "name": "Filter by state: "
-                    }
+                    "bind": "legend"
                 }
             ],
             "mark": "circle",
