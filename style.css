@@ -1,7 +1,7 @@
 html,
 body {
-    background-color: "white";
-    margin: 25px;
+    background-color: lightgray;
+    margin: 40px;
 
     .vis-container {
         width: 100%;
@@ -15,12 +15,16 @@ body {
 
     #text_div {
         margin: 30px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        /* border: 1px solid black; */
     }
 
     h1 {
         color: #bf0d00;
         font-size: 40px;
-        margin: 0px;
+        margin: 5px;
         margin-bottom: 25px;
     }
 
