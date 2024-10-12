@@ -15,6 +15,13 @@
             "as": "forest%"
         }
     ],
+    "projection": {
+        "type": "equirectangular",
+        "center": [
+            -27,
+            137
+        ]
+    },
     "layer": [
         {
             "params": [

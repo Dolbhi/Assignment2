@@ -26,17 +26,20 @@
         // var vg = "hist_fires.vg.json";
         // vegaEmbed("#full", vg, { actions: false }).then(function (result) { }).catch(console.error);
 
+        var vg = "forest_and_fires_map.vg.json";
+        vegaEmbed("#map", vg, { actions: false }).then(function (result) { }).catch(console.error);
+
         var vg = "hist_fires_monthly.vg.json";
         vegaEmbed("#monthly", vg, { actions: false }).then(function (result) { }).catch(console.error);
 
         var vg = "hist_fires_timeline.vg.json";
         vegaEmbed("#timeline", vg, { actions: false }).then(function (result) { }).catch(console.error);
 
-        var vg = "hist_fires_map.vg.json";
-        vegaEmbed("#map", vg, { actions: false }).then(function (result) { }).catch(console.error);
+        // var vg = "hist_fires_map.vg.json";
+        // vegaEmbed("#map", vg, { actions: false }).then(function (result) { }).catch(console.error);
 
-        var vg = "forest_map.vg.json";
-        vegaEmbed("#forest", vg, { actions: false }).then(function (result) { }).catch(console.error);
+        // var vg = "forest_map.vg.json";
+        // vegaEmbed("#forest", vg, { actions: false }).then(function (result) { }).catch(console.error);
 
         // var vg = "test.vg.json";
         // vegaEmbed("#test", vg, { actions: false }).then(function (result) { }).catch(console.error);
@@ -53,6 +56,16 @@
                 <p>Wow bushfires, they sure do happen. Crazy right? Bushfires have been a part of the Australian
                     enviroment for
                     millions of years, eucalyptus are literally evolved to firemax</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- One column chart -->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+            <div id='text_div'>
+                <h2>Distribution of Bushfires and Bushland</h2>
+                <div id="map" class="maps"></div>
             </div>
         </div>
     </div>
@@ -89,22 +102,6 @@
             <div id='text_div'>
                 <h2>Total Area Burned Each Month</h2>
                 <div id="monthly" class="vis-container"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Two column charts -->
-    <div class="pure-g">
-        <div class="pure-u-1-2">
-            <div id='text_div'>
-                <h2>Distribution of Bushfires</h2>
-                <div id="map" class="maps"></div>
-            </div>
-        </div>
-        <div class="pure-u-1-2">
-            <div id='text_div'>
-                <h2>Distribution of Bushland and Forests</h2>
-                <div id="forest" class="maps"></div>
             </div>
         </div>
     </div>

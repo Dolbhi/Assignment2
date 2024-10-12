@@ -1,0 +1,196 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "data/output.csv"
+    },
+    "width": "container",
+    "height": 600,
+    "params": [
+        {
+            "name": "showing",
+            "value": "Bushfires",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Bushfires",
+                    "Vegetation",
+                    "Both"
+                ],
+                "name": "Show: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "calculate": "split(datum.state, ' ')[0]",
+            "as": "state_code"
+        },
+        {
+            "calculate": "slice(split(datum.state, '(')[1], 0, -1)",
+            "as": "state_name"
+        },
+        {
+            "calculate": "timeParse(split(datum.ignition_date, 'T')[0], '%Y-%m-%d')",
+            "as": "ignition_date"
+        },
+        {
+            "calculate": "datetime(year(datum.ignition_date), month(datum.ignition_date))",
+            "as": "ignition_month"
+        },
+        {
+            "calculate": "datum.shape_area * 973205.204434",
+            "as": "true_shape_area"
+        },
+        {
+            "filter": "year(datum.ignition_date) >= 1900 && datum.fire_type == 'Bushfire'"
+        }
+    ],
+    "layer": [
+        {
+            "data": {
+                "url": "geometry/ABS_land_env_SA2_subset.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ABS_land_env_SA2"
+                }
+            },
+            "transform": [
+                {
+                    "calculate": "100 * datum.properties.lcover_420 / datum.properties.land2021",
+                    "as": "forest%"
+                }
+            ],
+            "mark": {
+                "type": "geoshape",
+                "stroke": null
+            },
+            "encoding": {
+                "fill": {
+                    "condition": {
+                        "test": "showing != 'Vegetation' && showing != 'Both'",
+                        "value": null
+                    },
+                    "field": "forest%",
+                    "type": "quantitative",
+                    "title": "Woody Vegetation (%)"
+                },
+                "stroke": {
+                    "condition": {
+                        "test": "showing != 'Vegetation' && showing != 'Both'",
+                        "value": "lightgrey"
+                    },
+                    "value": null
+                },
+                "tooltip": [
+                    {
+                        "field": "properties.sa2_name_2",
+                        "type": "nominal",
+                        "title": "Local Government Area"
+                    },
+                    {
+                        "field": "forest%",
+                        "type": "quantitative",
+                        "format": ",.0f",
+                        "title": "Woody Vegetation (%)"
+                    },
+                    {
+                        "field": "properties.land2021",
+                        "type": "quantitative",
+                        "format": "000.0f",
+                        "title": "Total Area (Hectare)"
+                    }
+                ]
+            }
+        },
+        {
+            "params": [
+                {
+                    "name": "state_filter",
+                    "select": {
+                        "type": "point",
+                        "fields": [
+                            "state_name"
+                        ]
+                    },
+                    "bind": {
+                        "element": "#test",
+                        "input": "select",
+                        "options": [
+                            null,
+                            "Australian Capital Territory",
+                            "New South Wales",
+                            "Queensland",
+                            "South Australia",
+                            "Tasmania",
+                            "Victoria",
+                            "Western Australia"
+                        ],
+                        "name": "Filter by state: "
+                    }
+                }
+            ],
+            "mark": "circle",
+            "encoding": {
+                "latitude": {
+                    "field": "latitude",
+                    "type": "quantitative"
+                },
+                "longitude": {
+                    "field": "longitude",
+                    "type": "quantitative"
+                },
+                "size": {
+                    "field": "true_shape_area",
+                    "type": "quantitative",
+                    "title": "Burn Area (Hectare)",
+                    "scale": {
+                        "rangeMin": 1,
+                        "rangeMax": 1000
+                    },
+                    "condition": [
+                        {
+                            "test": "showing == 'Vegetation'",
+                            "value": 0
+                        }
+                    ]
+                },
+                "color": {
+                    "field": "state_name",
+                    "type": "nominal",
+                    "title": "State"
+                },
+                "opacity": {
+                    "condition": [
+                        {
+                            "test": "showing == 'Vegetation'",
+                            "value": 0
+                        },
+                        {
+                            "param": "state_filter",
+                            "value": 0.8
+                        }
+                    ],
+                    "value": 0
+                },
+                "tooltip": [
+                    {
+                        "field": "state_name",
+                        "type": "nominal",
+                        "title": "State"
+                    },
+                    {
+                        "field": "area_ha",
+                        "type": "quantitative",
+                        "format": ",.0f",
+                        "title": "Burn Area (Hectare)"
+                    },
+                    {
+                        "field": "ignition_date",
+                        "type": "temporal",
+                        "title": "Ignition Date"
+                    }
+                ]
+            }
+        }
+    ]
+}
