@@ -95,6 +95,9 @@
     "resolve": {
         "scale": {
             "y": "independent"
+        },
+        "legend": {
+            "color": "independent"
         }
     }
 }

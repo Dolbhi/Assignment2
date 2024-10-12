@@ -9,7 +9,7 @@
         }
     },
     "width": "container",
-    "height": 600,
+    "height": "container",
     "params": [
         {
             "name": "showing",
@@ -47,7 +47,7 @@
             "as": "true_shape_area"
         },
         {
-            "filter": "year(datum.ignition_date) >= 1900 && datum.fire_type == 'Bushfire'"
+            "filter": "datum.fire_type == 'Bushfire'"
         }
     ],
     "layer": [
@@ -67,7 +67,7 @@
             ],
             "mark": {
                 "type": "geoshape",
-                "stroke": null
+                "stroke": "gray"
             },
             "encoding": {
                 "fill": {
@@ -78,13 +78,6 @@
                     "field": "forest%",
                     "type": "quantitative",
                     "title": "Woody Vegetation (%)"
-                },
-                "stroke": {
-                    "condition": {
-                        "test": "showing != 'Vegetation' && showing != 'Both'",
-                        "value": "lightgrey"
-                    },
-                    "value": null
                 },
                 "tooltip": [
                     {
