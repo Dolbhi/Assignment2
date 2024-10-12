@@ -37,6 +37,98 @@
     "height": 1000,
     "layer": [
         {
+            "data": {
+                "values": [
+                    {
+                        "start": "1938",
+                        "end": "1939",
+                        "event": "Black Friday Bushfires",
+                        "state": "New South Wales"
+                    },
+                    {
+                        "start": "1966",
+                        "end": "1967",
+                        "event": "Black Tuesday",
+                        "state": "Tasmania"
+                    },
+                    {
+                        "start": "1980",
+                        "end": "1983",
+                        "event": "Ash Wednesday",
+                        "state": "South Australia"
+                    },
+                    {
+                        "start": "2002",
+                        "end": "2003",
+                        "event": "Canberra Bushfires",
+                        "state": "Australian Capital Territory"
+                    },
+                    {
+                        "start": "2008",
+                        "end": "2009",
+                        "event": "Black Saturday",
+                        "state": "Victoria"
+                    },
+                    {
+                        "start": "2019",
+                        "end": "2020",
+                        "event": "Hottest Year",
+                        "state": "New South Wales"
+                    }
+                ],
+                "format": {
+                    "parse": {
+                        "start": "date:'%Y'",
+                        "end": "date:'%Y'"
+                    }
+                }
+            },
+            "layer": [
+                {
+                    "mark": {
+                        "type": "rect",
+                        "opacity": 0.5,
+                        "stroke": "black"
+                    },
+                    "encoding": {
+                        "y": {
+                            "field": "start",
+                            "timeUnit": "year"
+                        },
+                        "y2": {
+                            "field": "end",
+                            "timeUnit": "year"
+                        },
+                        "color": {
+                            "field": "state",
+                            "type": "nominal",
+                            "legend": null
+                        }
+                    }
+                },
+                {
+                    "mark": {
+                        "type": "text",
+                        "baseline": "bottom",
+                        "align": "right",
+                        "x": "width",
+                        "xOffset": -3,
+                        "yOffset": -2,
+                        "color": "black"
+                    },
+                    "encoding": {
+                        "text": {
+                            "field": "event"
+                        },
+                        "y": {
+                            "field": "start",
+                            "timeUnit": "year"
+                        }
+                    }
+                }
+            ]
+        },
+        {
             "mark": "area",
             "params": [
                 {
@@ -69,9 +161,17 @@
                 "color": {
                     "field": "state_name",
                     "type": "nominal",
-                    "title": "State"
+                    "title": "State",
+                    "legend": {
+                        "orient": "top-right"
+                    }
                 },
                 "tooltip": [
+                    {
+                        "field": "year",
+                        "timeUnit": "year",
+                        "title": "Year"
+                    },
                     {
                         "field": "state_name",
                         "type": "nominal",
@@ -173,6 +273,9 @@
     "resolve": {
         "scale": {
             "x": "independent"
+        },
+        "legend": {
+            "color": "independent"
         }
     }
 }
