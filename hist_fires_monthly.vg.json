@@ -67,6 +67,12 @@
                         "field": "state_name",
                         "type": "nominal",
                         "title": "State"
+                    },
+                    {
+                        "aggregate": "sum",
+                        "field": "area_ha",
+                        "type": "nominal",
+                        "title": "Area Burned (Hectare)"
                     }
                 ]
             }

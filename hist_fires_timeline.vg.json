@@ -7,7 +7,7 @@
         "legend": {
             "orient": "none",
             "legendX": 450,
-            "legendY": 50
+            "legendY": 20
         }
     },
     "transform": [
@@ -120,7 +120,19 @@
                     "axis": {
                         "orient": "bottom"
                     }
-                }
+                },
+                "tooltip": [
+                    {
+                        "field": "Annual Mean",
+                        "type": "quantitative",
+                        "title": "Temperature (C)"
+                    },
+                    {
+                        "field": "year",
+                        "timeUnit": "year",
+                        "title": "Year"
+                    }
+                ]
             }
         },
         {
