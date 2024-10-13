@@ -23,13 +23,13 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
     <script>
-        var vg = "forest_and_fires_map.vg.json";
+        var vg = "charts/forest_and_fires_map.vg.json";
         vegaEmbed("#map", vg, { actions: false }).then(function (result) { }).catch(console.error);
 
-        var vg = "hist_fires_monthly.vg.json";
+        var vg = "charts/hist_fires_monthly.vg.json";
         vegaEmbed("#monthly", vg, { actions: false }).then(function (result) { }).catch(console.error);
 
-        var vg = "hist_fires_timeline.vg.json";
+        var vg = "charts/hist_fires_timeline.vg.json";
         vegaEmbed("#timeline", vg, { actions: false }).then(function (result) { }).catch(console.error);
     </script>
 </head>
