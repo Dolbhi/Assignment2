@@ -23,7 +23,7 @@ body {
 
     h1 {
         color: #bf0d00;
-        font-size: 40px;
+        font-size: 50px;
         margin: 5px;
         margin-bottom: 25px;
     }
@@ -37,14 +37,14 @@ body {
 
     h3 {
         color: #bf0d00;
-        font-size: 20px;
+        font-size: 25px;
         margin: 10px;
         margin-left: 5px;
     }
 
     p {
         color: #470500;
-        font-size: 16px;
+        font-size: 20px;
         margin: 5px;
     }
 }

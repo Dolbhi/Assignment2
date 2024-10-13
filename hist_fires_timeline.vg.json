@@ -34,7 +34,7 @@
         }
     ],
     "width": "container",
-    "height": 1000,
+    "height": 950,
     "layer": [
         {
             "data": {
@@ -223,7 +223,7 @@
                     {
                         "field": "Annual Mean",
                         "type": "quantitative",
-                        "title": "Temperature (C)"
+                        "title": "Temperature (°C)"
                     },
                     {
                         "field": "year",
@@ -258,7 +258,7 @@
                 "x": {
                     "field": "5-yr smooth",
                     "type": "quantitative",
-                    "title": "Average Air Temperature (C)",
+                    "title": "Average Air Temperature (°C)",
                     "scale": {
                         "domain": [
                             20,

@@ -23,9 +23,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
     <script>
-        // var vg = "hist_fires.vg.json";
-        // vegaEmbed("#full", vg, { actions: false }).then(function (result) { }).catch(console.error);
-
         var vg = "forest_and_fires_map.vg.json";
         vegaEmbed("#map", vg, { actions: false }).then(function (result) { }).catch(console.error);
 
@@ -34,15 +31,6 @@
 
         var vg = "hist_fires_timeline.vg.json";
         vegaEmbed("#timeline", vg, { actions: false }).then(function (result) { }).catch(console.error);
-
-        // var vg = "hist_fires_map.vg.json";
-        // vegaEmbed("#map", vg, { actions: false }).then(function (result) { }).catch(console.error);
-
-        // var vg = "forest_map.vg.json";
-        // vegaEmbed("#forest", vg, { actions: false }).then(function (result) { }).catch(console.error);
-
-        // var vg = "test.vg.json";
-        // vegaEmbed("#test", vg, { actions: false }).then(function (result) { }).catch(console.error);
     </script>
 </head>
 
@@ -51,7 +39,7 @@
     <div class="pure-g">
         <div class="pure-u-1-1">
             <div id='text_div'>
-                <h1>Historical Bushfires in Australia</h1>
+                <h1>Historical bushfires in Australia</h1>
                 <p>
                     Bushfires in Australia are not a new development, Australia's dry climate means it contains some of
                     the most fire-prone regions in the world. Here bushfires have been a
@@ -61,6 +49,8 @@
                     However, in the modern day, out of control bushfires can cause great damage to property and person,
                     and with climate change giving rise to more extreme weather, the delicate balance of burning and
                     regrowth may be in danger of tipping.
+                    <br> <br>
+                    Below is a map of the distribution of bushfires that have occured since 1900 up to today.
                 </p>
             </div>
         </div>
@@ -70,7 +60,7 @@
     <div class="pure-g">
         <div class="pure-u-1-1">
             <div id='text_div'>
-                <h2>Distribution of Bushfires and Bushland</h2>
+                <h2>Distribution of bushfires and bushland</h2>
                 <div id="map" class="maps"></div>
             </div>
         </div>
@@ -80,11 +70,17 @@
     <div class="pure-g">
         <div class="pure-u-1-2">
             <div id='text_div'>
-                <h2>Bushfires Throughout The Year</h2>
+                <h2>Causes and factors</h2>
                 <p>
-                    The frequency and intensity of bushfires is dependent on the weather. While bushfires can occur all
-                    year round, fire risk tends to increase during the hotter summer month near the start and end of the
-                    year. In truth, there is no formal "bushfire season" shared across the whole of Australia and the
+                    Many fires have man-made causes such as electrical arcing, cigerettes or sparks from machinary.
+                    However, in recent times, most major fires have started from dry lightning igniting fires in remote
+                    regions.
+                    <br> <br>
+                    On the other hand, the intensity and severity of fires depends on how much dry fuel is avaliable to
+                    it. While bushfires can occur all year round, Fires then to be more ferocious in hotter drier
+                    conditions thus making them more widespread in the
+                    summer or in what is typically refered to as "bushfire season". In truth, there is no formal
+                    definition for a bushfire season shared across the whole of Australia and the
                     exact period of greatest fire activity varies from region to region.
                     <br> <br>
                     Typically, the colloquial use of "bushfire season" applies mainly to southern and eastern Australia
@@ -104,9 +100,18 @@
     <div class="pure-g">
         <div class="pure-u-1-1">
             <div id='text_div'>
-                <h2>Bushfires over time</h2>
+                <h2>Impact of bushfires</h2>
                 <p>
-                    TODO
+                    As climate change brings about hotter and more extreme weather, bushfires in recent years have
+                    become more intense and frequent. In addition to the direct damages to life and property, the smoke
+                    released by bushfires can adversely affect the respiratory system of infants. This in turn results
+                    has a significant economic impact in the funds spent on reconstruction, firefighting and healthcare.
+                    <br> <br>
+                    Wildfires also directly kill fauna and flora and destroy their habitats, posing significant risk to
+                    hundreds of already endangered species. Even for animals that are capable of outrunning or burrowing
+                    to hide from the blaze tend to suffer high numbers of causalties when doing so. Additionally, forest
+                    fires release a large amount of CO2, far more than can be reabsorbed by the forest and fires become
+                    hotter and more common.
                 </p>
             </div>
         </div>
@@ -116,82 +121,65 @@
     <div class="pure-g">
         <div class="pure-u-1-2">
             <div id='text_div'>
-                <h3><i>1938-39</i>: Black Friday Bushfires</h3>
+                <h3><i>1938-39</i>: Black Friday</h3>
                 <p>
-                    The Black Friday fires were the third deadliest on record, with some 71 people killed and 650 houses
-                    destroyed. They followed years of drought and a series of
-                    extreme heatwaves that were accompanied by strong northerly winds, after a very dry six months.
-                    Melbourne hit 45.6 °C
-                    and Adelaide 46.1 °C. In NSW, Bourke suffered 37 consecutive days above 38 degrees and Menindee hit
-                    a record 49.7°C on 10 January.
+                    Following years of drought and a series of extreme heatwaves, the 1939 bushfire season was one of
+                    the worst on record. Multiple fires that had been burning throughout December linked together on
+                    January Friday 13 in the third deadliest fire on record, totalling 71 deaths and 650 houses
+                    destroyed.
                     <br> <br>
-                    Planned burning was first introduced as a response to this.
+                    As a response to the devestating blaze, recommendations were brought forward to improve forest and
+                    fire management resulting in planned burning becoming offical practice.
                 </p>
                 <br>
 
                 <h3><i>1966-67</i>: Black Tuesday</h3>
                 <p>
                     In the summer of 1967, Tasmania suffered its most destructive fire season, and Australia's fourth
-                    most deadly on record.
-                    A verdant spring had added higher than usual fuel to the state's forest floors, and strong northerly
-                    winds and high
-                    temperatures drove at least 80 different fires across the south-east, burning to within 2 kilometres
-                    (1.2 mi) of the
-                    centre of Hobart, the state capital. The infernos killed 62 people and destroyed almost 1,300 homes.
+                    most deadly on record. A verdant spring had added higher than usual fuel to the state's forest
+                    floors, and strong northerly winds and high temperatures drove at least 80 different fires across
+                    the south-east, burning to within 2 kilometres of the centre of Hobart. The
+                    infernos killed 62 people and destroyed almost 1,300 homes.
                 </p>
                 <br>
 
                 <h3><i>1980-83</i>: Ash Wednesday</h3>
                 <p>
-                    On 16 February 1983, about 180 fires in an event known as the Ash Wednesday bushfires caused
-                    widespread destruction
-                    across parts of South Australia and Victoria, burning an area of 3.74 million acres (1.51 million
-                    hectares; 15,100 square
-                    kilometres; 5,840
-                    square miles) of bushland and exceeding the loss of 75 people. The bushfires, caused by years of
-                    severe drought and extreme weather, were amongst the deadliest bushfires in Australian history.
+                    Another series of severe droughts and extreme weather over serveral years led to about 180 fires on
+                    16 February 1983, in an event known as the Ash Wednesday bushfires caused widespread destruction
+                    across parts of South Australia and Victoria, burning an area of 1.51 million of bushland and
+                    killing over 75 people.
                 </p>
                 <br>
 
                 <h3><i>2003</i>: Canberra bushfires</h3>
                 <p>
-                    During 18-22 January 2003, almost 70% of the Australian Capital Territory's (ACT) pastures, pine
-                    plantations, and nature
-                    parks were severely damaged, and most of the Mount Stromlo Observatory was destroyed. Fires entered
-                    the suburbs of
-                    Canberra on 18 January 2003 and, in the following ten hours, four people died and over 490 were
-                    injured 470 homes were
-                    destroyed or severely damaged.
+                    From 18-22 January 2003, almost 70% of the Australian Capital Territory's pastures, pine
+                    plantations, and nature parks were severely damaged, and most of the Mount Stromlo Observatory was
+                    destroyed. Fires entered the suburbs of Canberra on 18 January 2003 and, resulting in 4 deaths, 490
+                    injuries and 470 homes destroyed or damaged.
                 </p>
                 <br>
 
                 <h3><i>2008-09</i>: Black Saturday</h3>
                 <p>
-                    Melbourne's maximum temperature was above 43.0 °C for three consecutive
-                    days for
-                    the first time since records had been kept, accompanied by strong winds on 7 February 2009, later to
-                    be known as 'Black
-                    Saturday'—precipitated major bushfires throughout Victoria, involving several large fire complexes,
-                    which continued to
-                    burn across the state for around one month. 173 people died in these fires and 414 were injured.
-                    3,500+ buildings were
-                    destroyed, including 2,029 houses, and 7,562 people displaced. In terms of loss of life and property
-                    damage, the Black
-                    Saturday fires rank as the most devastating in Australian history.
+                    In Melbourne, for the first in in record, the maximum temperature exeeded 43.0 °C for three
+                    consecutive days, accompanied by strong winds on 7 February 2009, resulted in major bushfires
+                    throughout Victoria, involving several large fire complexes, which continued to burn across the
+                    state for around a month. 173 people died and 414 were injured with 3,500+ buildings were destroyed.
+                    In terms of loss of life and property damage, the Black Saturday fires rank as the most devastating
+                    in Australian history.
                 </p>
                 <br>
 
                 <h3><i>2019-20</i>: The Hottest Year</h3>
                 <p>
-                    2019 had been the hottest record year for Australia, with the
-                    bushfire season starting
-                    in June 2019. This caused massive damage throughout the country, with fires in each state and
-                    territory. The east coast
-                    experienced widespread destruction from mega-blazes, such as the Currowan bushfire, which was just
-                    one of many
-                    catastrophic bushfires during the 2019-2020 season. In terms of the area of land burnt, wildlife
-                    deaths, and damage to
-                    the environment, some of its permanent damage, such as the burning of remnant rainforest.
+                    2019 had been the hottest record year for Australia, with the bushfire season starting in June 2019.
+                    This caused massive damage throughout the country, with fires in each state and territory. The east
+                    coast experienced widespread destruction from mega-blazes, such as the Currowan bushfire, which was
+                    just one of many catastrophic bushfires during the 2019-2020 season. In terms of the area of land
+                    burnt, wildlife deaths, and damage to the environment, including the burning of remnant rainforest,
+                    the 2019-20 fires were the worst in Australian history.
                 </p>
                 <br>
             </div>
@@ -200,26 +188,18 @@
             <div id='text_div'>
                 <div id="timeline" class="vis-container"></div>
             </div>
-        </div>
-    </div>
-
-    <!-- One column text -->
-    <div class="pure-g">
-        <div class="pure-u-1-1">
             <div id='text_div'>
-                <h2>Closing Words</h2>
+                <h2>Data sources</h2>
+                <br>
                 <p>
-                    It's more placeholder JUST DELETE ME LOL
-                    The annual European Backpacker Index, compiled by priceoftravel.com, is designed to help money-savy
-                    travellers find the cheapest European cities and plan an accurate budget for when they visit.
-                    <br> <br> Prices for most things like hostels, transportation and attractions are fixed and certain.
-                    However, prices for a 'budget lunch' or a pint of beer can vary depending on where you go. The index
-                    takes all of these factors into
-                    account to calculate the approximate price of a day in each city, including an overnight stay at a
-                    backpacker hostel.
-                    <br> <br> Here we review the top five cheapest European cities, as featured on the 2018 Index.
-                    Review the complete list of 59 cities at https://www.priceoftravel.com/1979/european-
-                    backpacker-index/.
+                    <a href="digital.atlas.gov.au/datasets/digitalatlas::historical-bushfire-boundaries-3/about">
+                        Historical bushfire boundaries
+                    </a>
+                    <br> <br>
+                    <a
+                        href="https://digital.atlas.gov.au/datasets/digitalatlas::abs-land-and-environment-by-2021-sa2-nov-2023/explore">
+                        Land and environment data
+                    </a>
                 </p>
             </div>
         </div>
